@@ -81,6 +81,7 @@ namespace GildedRoseTests
         [InlineData(5, 15, 4, 18)]
         [InlineData(1, 15, 0, 18)]
         [InlineData(0, 15, -1, 0)]
+        
         public void GildedRose_Backstage_ChackRages(int sellIn , int quality, int expectedSellIn , int expectedQuality)
         {
             IList<Item> Items = new List<Item> { new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = sellIn, Quality = quality } };

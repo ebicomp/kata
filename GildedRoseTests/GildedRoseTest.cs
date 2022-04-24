@@ -6,32 +6,27 @@ namespace GildedRoseTests
 {
     public class GildedRoseTest
     {
-        [Fact]
-        public void foo()
+
+        private static IList<Item> InitializeTest(string name , int sellIn , int quality)
         {
-            IList<Item> Items = new List<Item> { new Item { Name = "foo", SellIn = 0, Quality = 0 } };
+            IList<Item> Items = new List<Item> { new Item { Name = name, SellIn = sellIn, Quality = quality } };
             GildedRose app = new GildedRose(Items);
             app.UpdateQuality();
-            Assert.Equal("foo", Items[0].Name);
+            return Items;
         }
 
         [Fact]
         public void GildedRose_NormalItemGiven_SellInQualityDecrease()
         {
-            IList<Item> Items = new List<Item> { new Item { Name = "NormalItem", SellIn = 15, Quality = 15 } };
-            GildedRose app = new GildedRose(Items);
-            app.UpdateQuality();
+            IList<Item> Items = InitializeTest("NormalItem" ,15 , 15);
             Assert.Equal("NormalItem", Items[0].Name);
             Assert.Equal(14, Items[0].SellIn);
             Assert.Equal(14, Items[0].Quality);
         }
-
         [Fact]
         public void GildedRose_NormalItemGivenSellinPassed_QualityDecrease2TimesFaster()
         {
-            IList<Item> Items = new List<Item> { new Item { Name = "NormalItem", SellIn = 0, Quality = 15 } };
-            GildedRose app = new GildedRose(Items);
-            app.UpdateQuality();
+            IList<Item> Items = InitializeTest("NormalItem", 0, 15);
             Assert.Equal(-1, Items[0].SellIn);
             Assert.Equal(13, Items[0].Quality);
         }
@@ -39,9 +34,7 @@ namespace GildedRoseTests
         [Fact]
         public void GildedRose_NormalItemQuality0_QualityDoesNotChange()
         {
-            IList<Item> Items = new List<Item> { new Item { Name = "NormalItem", SellIn = 15, Quality = 0 } };
-            GildedRose app = new GildedRose(Items);
-            app.UpdateQuality();
+            IList<Item> Items = InitializeTest("NormalItem", 15, 0);
             Assert.Equal(14, Items[0].SellIn);
             Assert.Equal(0, Items[0].Quality);
         }
@@ -49,18 +42,14 @@ namespace GildedRoseTests
         [Fact]
         public void GildedRose_ArgedBrie_QualityIncrease()
         {
-            IList<Item> Items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 15, Quality = 15 } };
-            GildedRose app = new GildedRose(Items);
-            app.UpdateQuality();
+            IList<Item> Items = InitializeTest("Aged Brie", 15, 15);
             Assert.Equal(14, Items[0].SellIn);
             Assert.Equal(16, Items[0].Quality);
         }
         [Fact]
         public void GildedRose_NormalItemQualityIs50_QualityDoesNotChange()
         {
-            IList<Item> Items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 15, Quality = 50 } };
-            GildedRose app = new GildedRose(Items);
-            app.UpdateQuality();
+            IList<Item> Items = InitializeTest("Aged Brie", 15, 50);
             Assert.Equal(14, Items[0].SellIn);
             Assert.Equal(50, Items[0].Quality);
         }
@@ -68,9 +57,7 @@ namespace GildedRoseTests
         [Fact]
         public void GildedRose_Sulfuras_QualitySellInNeverChanges()
         {
-            IList<Item> Items = new List<Item> { new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 15, Quality = 15 } };
-            GildedRose app = new GildedRose(Items);
-            app.UpdateQuality();
+            IList<Item> Items = InitializeTest("Sulfuras, Hand of Ragnaros", 15, 15);
             Assert.Equal(15, Items[0].SellIn);
             Assert.Equal(15, Items[0].Quality);
         }
@@ -84,9 +71,9 @@ namespace GildedRoseTests
         
         public void GildedRose_Backstage_ChackRages(int sellIn , int quality, int expectedSellIn , int expectedQuality)
         {
-            IList<Item> Items = new List<Item> { new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = sellIn, Quality = quality } };
-            GildedRose app = new GildedRose(Items);
-            app.UpdateQuality();
+
+            IList<Item> Items = InitializeTest("Backstage passes to a TAFKAL80ETC concert", sellIn, quality);
+
             Assert.Equal(expectedSellIn, Items[0].SellIn);
             Assert.Equal(expectedQuality, Items[0].Quality);
         }

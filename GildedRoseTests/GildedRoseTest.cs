@@ -46,6 +46,14 @@ namespace GildedRoseTests
             Assert.Equal(14, Items[0].SellIn);
             Assert.Equal(16, Items[0].Quality);
         }
+
+        [Fact]
+        public void GildedRose_ArgedBrieSellinlessThanZero_QualityIncrease()
+        {
+            IList<Item> Items = InitializeTest("Aged Brie", -1, 15);
+            Assert.Equal(-2, Items[0].SellIn);
+            Assert.Equal(17, Items[0].Quality);
+        }
         [Fact]
         public void GildedRose_NormalItemQualityIs50_QualityDoesNotChange()
         {

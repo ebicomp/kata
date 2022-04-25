@@ -42,28 +42,24 @@ namespace GildedRoseKata
 
             foreach (var item in Items)
             {
-                if (!isBrie(item) && !isBackStage(item))
+                if (!isBrie(item) && !isBackStage(item) && !isSulfuras(item))
                 {
-                    if (!isSulfuras(item))
-                    {
-                        DecreaseQuality(item);
-                    }
+                    DecreaseQuality(item);
                 }
-                else
+                if (isBrie(item))
                 {
                     IncreaseQuality(item);
-
-                    if (isBackStage(item))
+                }
+                if (isBackStage(item))
+                {
+                    IncreaseQuality(item);
+                    if (item.SellIn < 11)
                     {
-                        if (item.SellIn < 11)
-                        {
-                            IncreaseQuality(item);
-                        }
-
-                        if (item.SellIn < 6)
-                        {
-                            IncreaseQuality(item);
-                        }
+                        IncreaseQuality(item);
+                    }
+                    if (item.SellIn < 6)
+                    {
+                        IncreaseQuality(item);
                     }
                 }
 

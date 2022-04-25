@@ -15,22 +15,6 @@ namespace GildedRoseKata
         private const int MinQuality = 0;
         private const int MaxQuality = 50;
 
-        private bool isNormalItem(Item item)
-        {
-            return !isBrie(item) && !isBackStage(item) && !isSulfuras(item);
-        }
-        private bool isBrie(Item item)
-        {
-            return item.Name == Brie;
-        }
-        private bool isBackStage(Item item)
-        {
-            return item.Name == Backstage;
-        }
-        private bool isSulfuras(Item item)
-        {
-            return item.Name == Sulfuras;
-        }
         private void DecreaseQuality(Item item)
         {
             if(item.Quality > MinQuality)
@@ -83,24 +67,21 @@ namespace GildedRoseKata
 
         public void UpdateQuality()
         {
-
             foreach (var item in Items)
             {
-
-                if (isBrie(item))
+                switch (item.Name)
                 {
-                    UpdatePrie(item);
-                }
-                else if (isBackStage(item))
-                {
-                    UpdateBackStage(item);
-                }
-                else if (isSulfuras(item))
-                { 
-                }
-                else if (isNormalItem(item))
-                {
-                    UpdateNormalItem(item);
+                    case Brie:
+                        UpdatePrie(item);
+                        break;
+                    case Backstage:
+                        UpdateBackStage(item);
+                        break;
+                    case Sulfuras:
+                        break;
+                    default:
+                        UpdateNormalItem(item);
+                        break;
                 }
             }
         }

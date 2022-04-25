@@ -51,21 +51,18 @@ namespace GildedRoseKata
                 }
                 else
                 {
-                    if (item.Quality < MaxQuality)
+                    IncreaseQuality(item);
+
+                    if (isBackStage(item))
                     {
-                        IncreaseQuality(item);
-
-                        if (isBackStage(item))
+                        if (item.SellIn < 11)
                         {
-                            if (item.SellIn < 11)
-                            {
-                                IncreaseQuality(item);
-                            }
+                            IncreaseQuality(item);
+                        }
 
-                            if (item.SellIn < 6)
-                            {
-                                IncreaseQuality(item);
-                            }
+                        if (item.SellIn < 6)
+                        {
+                            IncreaseQuality(item);
                         }
                     }
                 }

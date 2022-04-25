@@ -27,6 +27,10 @@ namespace GildedRoseKata
         {
             return item.Name == Sulfuras;
         }
+        private void DecreaseQuality(Item item)
+        {
+            item.Quality -= 1;
+        }
         public void UpdateQuality()
         {
 
@@ -38,7 +42,7 @@ namespace GildedRoseKata
                     {
                         if (!isSulfuras(item))
                         {
-                            item.Quality = item.Quality - 1;
+                            DecreaseQuality(item);
                         }
                     }
                 }
@@ -84,7 +88,7 @@ namespace GildedRoseKata
                             {
                                 if (!isSulfuras(item))
                                 {
-                                    item.Quality = item.Quality - 1;
+                                    DecreaseQuality(item);
                                 }
                             }
                         }

@@ -15,6 +15,10 @@ namespace GildedRoseKata
         private const int MinQuality = 0;
         private const int MaxQuality = 50;
 
+        private bool isNormalItem(Item item)
+        {
+            return !isBrie(item) && !isBackStage(item) && !isSulfuras(item);
+        }
         private bool isBrie(Item item)
         {
             return item.Name == Brie;
@@ -37,12 +41,13 @@ namespace GildedRoseKata
             if (item.Quality < MaxQuality)
                 item.Quality += 1;
         }
+
         public void UpdateQuality()
         {
 
             foreach (var item in Items)
             {
-                if (!isBrie(item) && !isBackStage(item) && !isSulfuras(item))
+                if (isNormalItem(item))
                 {
                     DecreaseQuality(item);
                 }

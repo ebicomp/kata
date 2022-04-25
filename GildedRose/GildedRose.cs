@@ -12,16 +12,21 @@ namespace GildedRoseKata
         private const string Brie = "Aged Brie";
         private const string Backstage = "Backstage passes to a TAFKAL80ETC concert";
         private const string Sulfuras = "Sulfuras, Hand of Ragnaros";
+        private const int MinQuality = 0;
+        private const int MaxQuality = 50;
 
+        private bool isBrie(Item item)
+        {
+            return item.Name == Brie;
+        }
         public void UpdateQuality()
         {
 
             foreach (var item in Items)
             {
-                
-                if (item.Name != Brie && item.Name != Backstage)
+                if (!isBrie(item) && item.Name != Backstage)
                 {
-                    if (item.Quality > 0)
+                    if (item.Quality > MinQuality)
                     {
                         if (item.Name != Sulfuras)
                         {
@@ -31,7 +36,7 @@ namespace GildedRoseKata
                 }
                 else
                 {
-                    if (item.Quality < 50)
+                    if (item.Quality < MaxQuality)
                     {
                         item.Quality = item.Quality + 1;
 
@@ -39,7 +44,7 @@ namespace GildedRoseKata
                         {
                             if (item.SellIn < 11)
                             {
-                                if (item.Quality < 50)
+                                if (item.Quality < MaxQuality)
                                 {
                                     item.Quality = item.Quality + 1;
                                 }
@@ -47,7 +52,7 @@ namespace GildedRoseKata
 
                             if (item.SellIn < 6)
                             {
-                                if (item.Quality < 50)
+                                if (item.Quality < MaxQuality)
                                 {
                                     item.Quality = item.Quality + 1;
                                 }
@@ -63,11 +68,11 @@ namespace GildedRoseKata
 
                 if (item.SellIn < 0)
                 {
-                    if (item.Name != Brie)
+                    if (!isBrie(item))
                     {
                         if (item.Name != Backstage)
                         {
-                            if (item.Quality > 0)
+                            if (item.Quality > MinQuality)
                             {
                                 if (item.Name != Sulfuras)
                                 {
@@ -82,7 +87,7 @@ namespace GildedRoseKata
                     }
                     else
                     {
-                        if (item.Quality < 50)
+                        if (item.Quality < MaxQuality)
                         {
                             item.Quality = item.Quality + 1;
                         }

@@ -23,6 +23,10 @@ namespace GildedRoseKata
         {
             return item.Name == Backstage;
         }
+        private bool isSulfuras(Item item)
+        {
+            return item.Name == Sulfuras;
+        }
         public void UpdateQuality()
         {
 
@@ -32,7 +36,7 @@ namespace GildedRoseKata
                 {
                     if (item.Quality > MinQuality)
                     {
-                        if (item.Name != Sulfuras)
+                        if (!isSulfuras(item))
                         {
                             item.Quality = item.Quality - 1;
                         }
@@ -65,7 +69,7 @@ namespace GildedRoseKata
                     }
                 }
 
-                if (item.Name != Sulfuras)
+                if (!isSulfuras(item))
                 {
                     item.SellIn = item.SellIn - 1;
                 }
@@ -78,7 +82,7 @@ namespace GildedRoseKata
                         {
                             if (item.Quality > MinQuality)
                             {
-                                if (item.Name != Sulfuras)
+                                if (!isSulfuras(item))
                                 {
                                     item.Quality = item.Quality - 1;
                                 }

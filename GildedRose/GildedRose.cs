@@ -16,9 +16,9 @@ namespace GildedRoseKata
         public void UpdateQuality()
         {
 
-            for (var i = 0; i < Items.Count; i++)
+            foreach (var item in Items)
             {
-                Item item = Items[i];
+                
                 if (item.Name != Brie && item.Name != Backstage)
                 {
                     if (item.Quality > 0)

@@ -31,6 +31,10 @@ namespace GildedRoseKata
         {
             item.Quality -= 1;
         }
+        private void IncreaseQuality(Item item)
+        {
+            item.Quality += 1;
+        }
         public void UpdateQuality()
         {
 
@@ -50,7 +54,7 @@ namespace GildedRoseKata
                 {
                     if (item.Quality < MaxQuality)
                     {
-                        item.Quality = item.Quality + 1;
+                        IncreaseQuality(item);
 
                         if (isBackStage(item))
                         {
@@ -58,7 +62,7 @@ namespace GildedRoseKata
                             {
                                 if (item.Quality < MaxQuality)
                                 {
-                                    item.Quality = item.Quality + 1;
+                                    IncreaseQuality(item);
                                 }
                             }
 
@@ -66,7 +70,7 @@ namespace GildedRoseKata
                             {
                                 if (item.Quality < MaxQuality)
                                 {
-                                    item.Quality = item.Quality + 1;
+                                    IncreaseQuality(item);
                                 }
                             }
                         }
@@ -101,7 +105,7 @@ namespace GildedRoseKata
                     {
                         if (item.Quality < MaxQuality)
                         {
-                            item.Quality = item.Quality + 1;
+                            IncreaseQuality(item);
                         }
                     }
                 }

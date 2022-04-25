@@ -29,7 +29,7 @@ namespace GildedRoseKata
         {
             item.SellIn = item.SellIn - 1;
         }
-        private void UpdatePrie(Item item)
+        private void UpdateBrie(Item item)
         {
             IncreaseQuality(item);
             DecreaseSellIn(item);
@@ -72,7 +72,7 @@ namespace GildedRoseKata
                 switch (item.Name)
                 {
                     case Brie:
-                        UpdatePrie(item);
+                        UpdateBrie(item);
                         break;
                     case Backstage:
                         UpdateBackStage(item);

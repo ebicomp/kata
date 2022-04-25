@@ -45,49 +45,62 @@ namespace GildedRoseKata
         {
             item.SellIn = item.SellIn - 1;
         }
+        private void UpdatePrie(Item item)
+        {
+            IncreaseQuality(item);
+            DecreaseSellIn(item);
+            if (item.SellIn < 0)
+            {
+                IncreaseQuality(item);
+            }
+        }
+        private void UpdateBackStage(Item item)
+        {
+            IncreaseQuality(item);
+            if (item.SellIn < 11)
+            {
+                IncreaseQuality(item);
+            }
+            if (item.SellIn < 6)
+            {
+                IncreaseQuality(item);
+            }
+            DecreaseSellIn(item);
+            if (item.SellIn < 0)
+            {
+                item.Quality = 0;
+            }
+        }
+        private void UpdateNormalItem(Item item)
+        {
+            DecreaseQuality(item);
+            DecreaseSellIn(item);
+            if (item.SellIn < 0)
+            {
+                DecreaseQuality(item);
+            }
+        }
 
         public void UpdateQuality()
         {
 
             foreach (var item in Items)
             {
+
                 if (isBrie(item))
                 {
-                    IncreaseQuality(item);
-                    DecreaseSellIn(item);
-                    if (item.SellIn < 0)
-                    {
-                        IncreaseQuality(item);
-                    }
+                    UpdatePrie(item);
                 }
                 else if (isBackStage(item))
                 {
-                    IncreaseQuality(item);
-                    if (item.SellIn < 11)
-                    {
-                        IncreaseQuality(item);
-                    }
-                    if (item.SellIn < 6)
-                    {
-                        IncreaseQuality(item);
-                    }
-                    DecreaseSellIn(item);
-                    if (item.SellIn < 0)
-                    {
-                        item.Quality = 0;
-                    }
+                    UpdateBackStage(item);
                 }
                 else if (isSulfuras(item))
                 { 
                 }
                 else if (isNormalItem(item))
                 {
-                    DecreaseQuality(item);
-                    DecreaseSellIn(item);
-                    if (item.SellIn < 0)
-                    {
-                        DecreaseQuality(item);
-                    }
+                    UpdateNormalItem(item);
                 }
             }
         }

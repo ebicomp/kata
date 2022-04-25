@@ -96,7 +96,7 @@ namespace GildedRoseKata
 
                 if (item.SellIn < 0)
                 {
-                    if (!isBrie(item) && !isBackStage(item) && !isSulfuras(item))
+                    if (isNormalItem(item))
                     {
                         DecreaseQuality(item);
                     }

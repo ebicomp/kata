@@ -51,7 +51,6 @@ namespace GildedRoseKata
 
             foreach (var item in Items)
             {
-
                 if (isBrie(item))
                 {
                     IncreaseQuality(item);
@@ -77,8 +76,6 @@ namespace GildedRoseKata
                     {
                         item.Quality = 0;
                     }
-
-
                 }
                 else if (isSulfuras(item))
                 { 
@@ -87,16 +84,7 @@ namespace GildedRoseKata
                 {
                     DecreaseQuality(item);
                     DecreaseSellIn(item);
-                }
-
-                //if (!isSulfuras(item))
-                //{
-                //    DecreaseSellIn(item);
-                //}
-
-                if (item.SellIn < 0)
-                {
-                    if (isNormalItem(item))
+                    if (item.SellIn < 0)
                     {
                         DecreaseQuality(item);
                     }

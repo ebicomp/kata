@@ -56,6 +56,10 @@ namespace GildedRoseKata
                 {
                     IncreaseQuality(item);
                     DecreaseSellIn(item);
+                    if (item.SellIn < 0)
+                    {
+                        IncreaseQuality(item);
+                    }
                 }
                 else if (isBackStage(item))
                 {
@@ -102,7 +106,7 @@ namespace GildedRoseKata
                     }
                     else
                     {
-                        IncreaseQuality(item);
+                        //IncreaseQuality(item);
                     }
                 }
             }

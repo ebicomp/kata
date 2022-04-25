@@ -19,12 +19,16 @@ namespace GildedRoseKata
         {
             return item.Name == Brie;
         }
+        private bool isBackStage(Item item)
+        {
+            return item.Name == Backstage;
+        }
         public void UpdateQuality()
         {
 
             foreach (var item in Items)
             {
-                if (!isBrie(item) && item.Name != Backstage)
+                if (!isBrie(item) && !isBackStage(item))
                 {
                     if (item.Quality > MinQuality)
                     {
@@ -40,7 +44,7 @@ namespace GildedRoseKata
                     {
                         item.Quality = item.Quality + 1;
 
-                        if (item.Name == Backstage)
+                        if (isBackStage(item))
                         {
                             if (item.SellIn < 11)
                             {
@@ -70,7 +74,7 @@ namespace GildedRoseKata
                 {
                     if (!isBrie(item))
                     {
-                        if (item.Name != Backstage)
+                        if (!isBackStage(item))
                         {
                             if (item.Quality > MinQuality)
                             {

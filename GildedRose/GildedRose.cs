@@ -73,6 +73,12 @@ namespace GildedRoseKata
                         IncreaseQuality(item);
                     }
                     DecreaseSellIn(item);
+                    if (item.SellIn < 0)
+                    {
+                        item.Quality = 0;
+                    }
+
+
                 }
                 else if (isSulfuras(item))
                 { 
@@ -101,7 +107,7 @@ namespace GildedRoseKata
                         }
                         else
                         {
-                            item.Quality = 0;
+                            //item.Quality = 0;
                         }
                     }
                     else

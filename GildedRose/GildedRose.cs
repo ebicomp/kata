@@ -29,7 +29,8 @@ namespace GildedRoseKata
         }
         private void DecreaseQuality(Item item)
         {
-            item.Quality -= 1;
+            if(item.Quality > MinQuality)
+                item.Quality -= 1;
         }
         private void IncreaseQuality(Item item)
         {
@@ -42,12 +43,9 @@ namespace GildedRoseKata
             {
                 if (!isBrie(item) && !isBackStage(item))
                 {
-                    if (item.Quality > MinQuality)
+                    if (!isSulfuras(item))
                     {
-                        if (!isSulfuras(item))
-                        {
-                            DecreaseQuality(item);
-                        }
+                        DecreaseQuality(item);
                     }
                 }
                 else
@@ -88,12 +86,9 @@ namespace GildedRoseKata
                     {
                         if (!isBackStage(item))
                         {
-                            if (item.Quality > MinQuality)
+                            if (!isSulfuras(item))
                             {
-                                if (!isSulfuras(item))
-                                {
-                                    DecreaseQuality(item);
-                                }
+                                DecreaseQuality(item);
                             }
                         }
                         else

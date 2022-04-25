@@ -41,6 +41,10 @@ namespace GildedRoseKata
             if (item.Quality < MaxQuality)
                 item.Quality += 1;
         }
+        private void DecreaseSellIn(Item item)
+        {
+            item.SellIn = item.SellIn - 1;
+        }
 
         public void UpdateQuality()
         {
@@ -70,7 +74,7 @@ namespace GildedRoseKata
 
                 if (!isSulfuras(item))
                 {
-                    item.SellIn = item.SellIn - 1;
+                    DecreaseSellIn(item);
                 }
 
                 if (item.SellIn < 0)

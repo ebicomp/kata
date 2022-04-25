@@ -96,23 +96,9 @@ namespace GildedRoseKata
 
                 if (item.SellIn < 0)
                 {
-                    if (!isBrie(item))
+                    if (!isBrie(item) && !isBackStage(item) && !isSulfuras(item))
                     {
-                        if (!isBackStage(item))
-                        {
-                            if (!isSulfuras(item))
-                            {
-                                DecreaseQuality(item);
-                            }
-                        }
-                        else
-                        {
-                            //item.Quality = 0;
-                        }
-                    }
-                    else
-                    {
-                        //IncreaseQuality(item);
+                        DecreaseQuality(item);
                     }
                 }
             }

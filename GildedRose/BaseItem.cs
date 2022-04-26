@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace GildedRoseKata
 {
-    class BaseItem
+    public class BaseItem
     {
-        private Item Item;
+        protected Item Item;
         public BaseItem(Item item)
         {
             this.Item = item;
@@ -17,28 +17,23 @@ namespace GildedRoseKata
         private const int MinQuality = 0;
         private const int MaxQuality = 50;
 
-        private void DecreaseQuality()
+        protected void DecreaseQuality()
         {
             if (Item.Quality > MinQuality)
                 Item.Quality -= 1;
         }
-        private void IncreaseQuality()
+        protected void IncreaseQuality()
         {
             if (Item.Quality < MaxQuality)
                 Item.Quality += 1;
         }
-        private void DecreaseSellIn()
+        protected void DecreaseSellIn()
         {
             Item.SellIn = Item.SellIn - 1;
         }
-        public void UpdateBrie()
+        public virtual void Update()
         {
-            IncreaseQuality();
-            DecreaseSellIn();
-            if (Item.SellIn < 0)
-            {
-                IncreaseQuality();
-            }
+            
         }
         public void UpdateBackStage()
         {

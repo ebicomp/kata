@@ -23,7 +23,7 @@ namespace GildedRoseKata
                 switch (item.Name)
                 {
                     case Brie:
-                        baseItem.UpdateBrie();
+                        new BrieItem(item).Update();
                         break;
                     case Backstage:
                         baseItem.UpdateBackStage();

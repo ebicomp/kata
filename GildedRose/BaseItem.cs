@@ -52,14 +52,5 @@ namespace GildedRoseKata
                 Item.Quality = 0;
             }
         }
-        public void UpdateNormalItem()
-        {
-            DecreaseQuality();
-            DecreaseSellIn();
-            if (Item.SellIn < 0)
-            {
-                DecreaseQuality();
-            }
-        }
     }
 }

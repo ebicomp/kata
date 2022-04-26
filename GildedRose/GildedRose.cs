@@ -31,7 +31,7 @@ namespace GildedRoseKata
                     case Sulfuras:
                         break;
                     default:
-                        baseItem.UpdateNormalItem();
+                        new NormalItem(item).Update();
                         break;
                 }
             }

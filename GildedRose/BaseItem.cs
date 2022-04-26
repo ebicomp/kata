@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace GildedRoseKata
 {
-    class ItemCalculator
+    class BaseItem
     {
         private Item Item;
-        public ItemCalculator(Item item)
+        public BaseItem(Item item)
         {
             this.Item = item;
         }

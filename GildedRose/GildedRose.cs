@@ -19,19 +19,19 @@ namespace GildedRoseKata
         {
             foreach (var item in Items)
             {
-                var itemCalculator = new ItemCalculator(item);
+                var baseItem = new BaseItem(item);
                 switch (item.Name)
                 {
                     case Brie:
-                        itemCalculator.UpdateBrie();
+                        baseItem.UpdateBrie();
                         break;
                     case Backstage:
-                        itemCalculator.UpdateBackStage();
+                        baseItem.UpdateBackStage();
                         break;
                     case Sulfuras:
                         break;
                     default:
-                        itemCalculator.UpdateNormalItem();
+                        baseItem.UpdateNormalItem();
                         break;
                 }
             }

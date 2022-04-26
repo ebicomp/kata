@@ -19,12 +19,15 @@ manipulate complicated logic. You can gain access to the Repository of the proje
 * The Quality of an item is never more than 50
 * “Sulfuras”, being a legendary item, never has to be sold or decreases in Quality
 * “Backstage passes”, like aged brie, increases in Quality as it’s SellIn value approaches; Quality increases by 2 when there are 10 days or less and by 3 when there are 5 days or less but Quality drops to 0 after the concert
+### new Requirement
+* We have recently signed a supplier of conjured items. This requires an update to our system:
+* "Conjured" items degrade in Quality twice as fast as normal items
+
 
 
 ## Getting Started
 
 you can clone the project in your application, and then install all dependancies by Nuget Package Manager
-
 ![image](https://raw.githubusercontent.com/NuGet/docs.microsoft.com-nuget/main/docs/quickstart/media/QS_Use-02-ManageNuGetPackages.png)
 
 ### Dependencies

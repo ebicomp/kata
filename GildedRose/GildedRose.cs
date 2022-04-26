@@ -26,7 +26,7 @@ namespace GildedRoseKata
                         new BrieItem(item).Update();
                         break;
                     case Backstage:
-                        baseItem.UpdateBackStage();
+                        new BackStageItem(item).Update();
                         break;
                     case Sulfuras:
                         break;

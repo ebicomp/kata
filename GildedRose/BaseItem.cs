@@ -35,22 +35,5 @@ namespace GildedRoseKata
         {
             
         }
-        public void UpdateBackStage()
-        {
-            IncreaseQuality();
-            if (Item.SellIn < 11)
-            {
-                IncreaseQuality();
-            }
-            if (Item.SellIn < 6)
-            {
-                IncreaseQuality();
-            }
-            DecreaseSellIn();
-            if (Item.SellIn < 0)
-            {
-                Item.Quality = 0;
-            }
-        }
     }
 }

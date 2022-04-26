@@ -12,7 +12,7 @@ namespace GildedRoseKata
         private const string Brie = "Aged Brie";
         private const string Backstage = "Backstage passes to a TAFKAL80ETC concert";
         private const string Sulfuras = "Sulfuras, Hand of Ragnaros";
-
+        private const string Conjured = "Conjured Mana Cake";
 
         private Item Item;
         public ItemFactory(Item item)
@@ -27,6 +27,8 @@ namespace GildedRoseKata
                     return new BrieItem(Item);
                 case Backstage:
                     return new BackStageItem(Item);
+                case Conjured:
+                    return new ConjuredItem(Item);
                 case Sulfuras:
                     return new BaseItem(Item);
                 default:

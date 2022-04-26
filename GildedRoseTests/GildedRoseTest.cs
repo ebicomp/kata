@@ -79,11 +79,17 @@ namespace GildedRoseTests
         
         public void GildedRose_Backstage_ChackRages(int sellIn , int quality, int expectedSellIn , int expectedQuality)
         {
-
             IList<Item> Items = InitializeTest("Backstage passes to a TAFKAL80ETC concert", sellIn, quality);
-
             Assert.Equal(expectedSellIn, Items[0].SellIn);
             Assert.Equal(expectedQuality, Items[0].Quality);
+        }
+
+        [Fact]
+        public void GildedRose_ConjuredItem_QualityDecreaseTwice()
+        {
+            IList<Item> Items = InitializeTest("Conjured Mana Cake", 15, 15);
+            Assert.Equal(14, Items[0].SellIn);
+            Assert.Equal(13, Items[0].Quality);
         }
     }
 }

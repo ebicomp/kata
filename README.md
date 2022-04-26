@@ -9,6 +9,7 @@ manipulate complicated logic. You can gain access to the Repository of the proje
 
 
 ## Getting Started
+you can clone the project in your application, and then install all dependancies by Nuget Package Manager
 
 ### Dependencies
 
